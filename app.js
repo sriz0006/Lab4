@@ -13,10 +13,12 @@ app.use(express.static(path.join(__dirname, 'public')));//To serve static files 
 app.use('/bootstrap', express.static(path.join(__dirname, 'bower_components/bootstrap/')));//Bootstrap is the most popular CSS Framework for developing responsive and mobile-first websites.
 app.use('/jquery', express.static(path.join(__dirname, 'bower_components/jquery/')));
 app.use('/css', express.static(path.join(__dirname, 'public/stylesheets/')));
-app.use(bodyParser.urlencoded({
+app.use(bodyParser.urlencoded({ //The middleware to handle url encoded data is returned by bodyParser.urlencoded({extended: false}) . extended=false is a configuration option that tells the parser to use the classic encoding
     extended: false
 }));
 
 app.use('/', indexRouter);
 app.listen("8080");
 console.log("Server running at http://localhost:8080");
+
+//: by default, res.render needs the HTML files to be in a directory called ‘views’
